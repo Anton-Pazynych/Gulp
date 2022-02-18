@@ -4,3 +4,6 @@
 2. .scss to css
 3. img compress
 4. Browser-sync
+
+
+instll >>  npm i
