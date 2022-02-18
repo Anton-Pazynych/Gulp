@@ -6,7 +6,7 @@ const browsersync = require('browser-sync').create()
 const fileinclude = require('gulp-file-include')
 
 
-// const imagemin = require('gulp-imagemin')
+// 1 const imagemin = require('gulp-imagemin')
 
 
 const paths = {
