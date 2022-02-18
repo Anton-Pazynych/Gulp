@@ -7,3 +7,8 @@
 
 
 instll >>  npm i
+
+
+TO-do:
+
+1. Fix img compress
