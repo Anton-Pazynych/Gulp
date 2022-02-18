@@ -4,9 +4,7 @@ const dest = require('dest')
 const sass = require('gulp-sass')(require('sass'))
 const browsersync = require('browser-sync').create()
 const fileinclude = require('gulp-file-include')
-
-
-// 1 const imagemin = require('gulp-imagemin')
+const imagemin = require('gulp-imagemin')
 
 
 const paths = {
@@ -30,11 +28,11 @@ const paths = {
   },
 }
 
-
+                                    //Clean dir 'dist
 function clean() {
   return del(['dist/*'])
 }
-
+                                    //HTML
 function html() {
   return gulp.src(paths.html.src)
     .pipe(fileinclude({
@@ -44,21 +42,21 @@ function html() {
     .pipe(gulp.dest(paths.html.dest))
     .pipe(browsersync.stream())
 }
-
+                                    //scss to css
 function styles() {
   return gulp.src(paths.styles.src)
     .pipe(sass.sync({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(gulp.dest(paths.styles.dest)) 
     .pipe(browsersync.stream())  
 }
-
+                                  //copy .js
 function scripts() {
   return gulp.src(paths.scripts.src,)
     .pipe(gulp.dest(paths.scripts.dest)) 
     .pipe(browsersync.stream())
 }
 
-
+                                 //compress igg
 function img() {
   return gulp.src(paths.img.src)
     // .pipe(imagemin())
@@ -66,7 +64,7 @@ function img() {
 }
 
 
-
+                                //watch elements
 function watch() {
   browsersync.init({
     server: {
@@ -81,9 +79,11 @@ function watch() {
   gulp.watch(paths.img.src, img)
 }
 
+                                  //algoritm
 
 const build = gulp.series(clean, gulp.parallel(styles, scripts, html, img), watch)
 
+                                //naming functions
 exports.clean = clean
 exports.html = html
 exports.styles = styles
