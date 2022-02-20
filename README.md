@@ -9,6 +9,6 @@
 instll >>  npm i
 
 
-TO-do:
+TO-do::
 
 1. Fix img compress
